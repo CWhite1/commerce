@@ -1,0 +1,68 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+    <h2>Listing No.{{ listing.id }} in Category {{ listing.category }}</h2>
+        {% if item_exists %}
+        <form action="{% url 'watchlist_remove' listing.id %}" class="btn-right" method="post" name="{{ listing.id }}">      
+            {% csrf_token %}
+            <input type="submit" value="Remove from Watchlist">
+        </form>
+        {% else %}
+        <form action="{% url 'watchlist_add' listing.id %}" class="btn-right" method="post" name="{{ listing.id }}">      
+            {% csrf_token %}
+            <input type="submit" value="Add to Watchlist">
+        </form>
+        {% endif %}
+        {% if author %}
+        <form action="{% url 'close' listing.id %}" class="btn-right" method="post" enctype="multipart/form-data">
+            {% csrf_token %}   
+            <input type="submit" value="Close Listing">
+        </form>
+        {% endif %}
+        <div class="row">
+            <div class="wide-column">
+                <div class="listing-item">
+                    <h4>{{ listing.name }}</h4>
+                    <h4>Starting Bid: ${{ listing.price }}</h4>
+                    <img src="{{ listing.image.url }}" alt="connect" style="max-height:300px">
+                    <br>
+                    <br>
+                    <p>Description: {{ listing.description }}</p>
+                </div>
+            </div>
+            <div class="wide-column">
+                    {% if message %}
+                        <div class="comment-text">{{ message }}</div>
+                    {% elif winner %}
+                        <div class="congrat-text">Congratulations you have won the bid</div>
+                    {% elif bid %}
+                    <div class="congrat-text">Congratulations To Date You Have the Highest Bid: ${{ bid.bid }}</div>
+                    {% elif comment %}
+                    <div class="comment-text">Comment: {{ comment.comment }}</div>
+                    {% else %}
+                    <form action="{% url 'bid' listing.id %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form_b.as_p }}             
+                        <button type="submit">Submit Bid</button>
+                    </form>
+                    <br>
+                    <form action="{% url 'comment' listing.id %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}   
+                        {{ form_c.as_p }}         
+                        <button type="submit">Submit Comment</button>
+                    </form>
+                    {% endif %}
+                    {% if comments %}
+                    <br>
+                        {% for comment in comments %}
+                            <ul>
+                                <li>{{ comment }}</li>
+                            </ul>
+                        {% endfor %}
+                    <br>
+                    {% endif %}
+                    
+                    
+                </div>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,119 @@
+body {
+    padding: 30px;
+    
+}
+
+.item {
+    padding: 40px;
+    text-align: center;
+    width: 33%;
+}
+
+.listing-item {
+    padding: 10px;
+    text-align: center;
+    
+}
+
+input {
+    width: 20%;
+    font-size: 15px;
+    line-height: 15px;
+    border-radius: 33px 33px 33px 33px;
+    padding: 8px;
+}
+
+
+label.form-control {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+  
+  .form-control:hover {
+    background: #6b6c6f;
+    color:  #e3e3ed; 
+    text-decoration-color: white;
+  }
+  
+.form-control {
+    display: block;
+    text-decoration-color: white;
+    width: 40%;
+    border-radius: 33px 33px 33px 33px;
+    margin: 10px;
+    padding: 10px;
+    border-style: solid;
+    border: 3px solid;
+    border-color: #343435;
+    background: #9a9b9c;
+    border-style: solid;
+    color: #e3e3ed; 
+    font-size: 16px;
+    font-family: arial,sans-serif;
+}
+
+textarea {
+    display: block;
+    text-decoration-color: white;
+    width: 40%;
+    border-radius: 33px 33px 33px 33px;
+    margin: 10px;
+    padding: 10px;
+    border-style: solid;
+    border: 3px solid;
+    border-color: #343435;
+    background: #9a9b9c;
+    border-style: solid;
+    color: #e3e3ed; 
+    font-size: 16px;
+    font-family: arial,sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.btn-right {
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.error-text {
+    margin-top: 10%;
+    margin-left: 10px;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 56px;
+    
+}
+
+.congrat-text {
+    margin-top: 20px;
+    margin-right: 10px;
+    padding-top: 20px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 56px;  
+}
+
+.comment-text {
+    margin-top: 25%;
+    margin-right: 10px;
+    padding-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;  
+}
+
+
+.wide-column {
+    width: 40%;
+  }
+
+

@@ -1,0 +1,25 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2> 
+    <div class="row">
+        {% if listings|length %}
+            {% for listing in listings %}
+                {% if listing.active %}
+                    <div class="column item">
+                        <a href="{% url 'listing' listing.id %}">
+                            <h4>{{listing.name}} in Category {{listing.category}}</h3>
+                            <h4>Starting Bid: ${{listing.price}}</h4>
+                            <img src="{{ listing.image.url }}" alt="Listing Image">
+                            <br>
+                            <br>
+                            <p>Description: {{listing.description}}</p>
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+        <div class="error-text">Sorry No Active Items for this Category. Try Again.</div>  
+        {% endif %}
+    </div>  
+{% endblock %}

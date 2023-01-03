@@ -1,0 +1,10 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+<div class="error-text">Sorry, Bid Must Be Greater Than
+{% if s_price %}
+${{ s_price }}</div>
+{% else %}
+${{ highest_bid }}</div>
+{% endif %}
+
+{% endblock %}
